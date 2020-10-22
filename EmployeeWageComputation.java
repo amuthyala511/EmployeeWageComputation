@@ -2,9 +2,9 @@ public class EmployeeWageComputation
 {
 	public static final int IS_PART_TIME=1;
 	public static final int IS_FULL_TIME=2;
-	public static int ComputeEmpWage(int empWageperHr, int numofWorkingDays, int maxHrsperMonth)
+	int empHrs=0, totalEmpHrs=0, totalWorkingDays=0;
+	public int ComputeEmpWage(String company, int empWageperHr, int numofWorkingDays, int maxHrsperMonth)
 	{
-		int empHrs=0, totalEmpHrs=0, totalWorkingDays=0;
 		while(totalEmpHrs<=maxHrsperMonth || totalWorkingDays<numofWorkingDays)
 		{
 			totalWorkingDays++;
@@ -30,7 +30,7 @@ public class EmployeeWageComputation
 			System.out.println("Day "+totalWorkingDays+" employee wage is: "+empWageperDay);
 		}
 		int totalEmpWage = totalEmpHrs*empWageperHr;
-		System.out.println("Employee total wage per month is: "+totalEmpWage);
+		System.out.println("Employee total wage per month in "+company+" is: "+totalEmpWage);
 		return totalEmpWage;
 	}
 	public static void main(String[] args)
@@ -41,7 +41,10 @@ public class EmployeeWageComputation
 		if(empAttendance == IS_PRESENT)
 		{
 			System.out.println("Employee is Present");
-			ComputeEmpWage(20,20,100);
+			EmployeeWageComputation obj = new EmployeeWageComputation();
+			obj.ComputeEmpWage("DMart",20,20,100);
+			obj.ComputeEmpWage("Reliance",10,20,100);
+			obj.ComputeEmpWage("Amazon",25,15,100);
 		}
 		else
 		{
