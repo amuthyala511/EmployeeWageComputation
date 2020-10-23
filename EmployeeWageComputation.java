@@ -2,9 +2,17 @@ public class EmployeeWageComputation
 {
 	public static final int IS_PART_TIME=1;
 	public static final int IS_FULL_TIME=2;
-	int empHrs=0, totalEmpHrs=0, totalWorkingDays=0;
-	public int ComputeEmpWage(String company, int empWageperHr, int numofWorkingDays, int maxHrsperMonth)
+	public static final int empWageperHr=20;
+	public static final int maxHrsperMonth=100;
+	public static final int numofWorkingDays=20;
+	public String company;
+	public EmployeeWageComputation(String Company)
 	{
+		company = Company;
+	}
+	public int ComputeEmpWage()
+	{
+		int empHrs=0, totalEmpHrs=0, totalWorkingDays=0;
 		while(totalEmpHrs<=maxHrsperMonth || totalWorkingDays<numofWorkingDays)
 		{
 			totalWorkingDays++;
@@ -41,10 +49,10 @@ public class EmployeeWageComputation
 		if(empAttendance == IS_PRESENT)
 		{
 			System.out.println("Employee is Present");
-			EmployeeWageComputation obj = new EmployeeWageComputation();
-			obj.ComputeEmpWage("DMart",20,20,100);
-			obj.ComputeEmpWage("Reliance",10,20,100);
-			obj.ComputeEmpWage("Amazon",25,15,100);
+			EmployeeWageComputation obj1 = new EmployeeWageComputation("DMart");
+			EmployeeWageComputation obj2 = new EmployeeWageComputation("Amazon");
+			obj1.ComputeEmpWage();
+			obj2.ComputeEmpWage();
 		}
 		else
 		{
